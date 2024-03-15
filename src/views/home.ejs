@@ -1,17 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="/css/styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
     <div class="topnav">
-        <a class="active" href="#home">Home</a>
-        <a href="#news">News</a>
-        <a href="#contact">Contact</a>
-        <a href="#about">About</a>
-      </div>
-</body>
+      <a class="active" href="/">Home</a>
+      <a href="/createUser">Create user</a>
+      <a href="/editUser">Edit user</a>
+    </div>
+    <div>
+        <% console.log(listUser); %>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Email</th>
+                <th scope="col">Name</th>
+                <th scope="col">City</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+            <% for (let index = 0; index < listUser.length; index++) { %>
+              <tr>
+                <th scope="row"><%= listUser[index].id %></th>
+                <td><%= listUser[index].name %></td>
+                <td><%= listUser[index].email %></td>
+                <td><%= listUser[index].city %></td>
+                <td>
+                  <button><a href="/editUser/<%=listUser[index].id%>">Edit</a></button>
+                  <button ><a onclick="confirm('Are you sure!!')" href="/delete-user/<%=listUser[index].id%>">Delete</a></button>
+                </td>
+              </tr>
+             <% } %>
+            </tbody>
+          </table>
+    </div>
+  </body>
 </html>

@@ -11,6 +11,11 @@ const hostname = process.env.HOST_NAME
 const port = process.env.PORT
 
 console.log(process.env.PORT);
+
+//getdataformform
+app.use(express.json())//for json
+app.use(express.urlencoded({ extended: true }))//for form data
+
 //config template engine
 configViewEngine(app);
 
